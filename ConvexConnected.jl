@@ -317,6 +317,10 @@ MultivariateStats.stress(mds)
 
 @everywhere crds = StatsBase.predict(mds)
 
+ccr = create_connected_vase_bowl_regions(2)
+
+palette = ... # choose a color palette you like
+
 meshscatter(crds[1, :], crds[2, :], crds[3, :], markersize=.1, color=palette[ccr[:]])
 
 v = vrep(hcat(crds[1, :][ccr[:] .== 2], crds[2, :][ccr[:] .== 2], crds[3, :][ccr[:] .== 2]))
