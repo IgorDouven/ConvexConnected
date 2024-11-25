@@ -309,7 +309,7 @@ df_test = DataFrame(epochs=1:100, rnd_res=first.(rtst_bs), ymin2=getindex.(rtst_
     return m
 end
 
-@everywhere simmeans = Matrix(CSV.read(".../similarity_means.csv"), DataFrame; header=false)
+@everywhere simmeans = Matrix(CSV.read(".../similarity_means.csv", DataFrame; header=false))
 
 @everywhere mds = MultivariateStats.fit(MDS, simmeans, maxoutdim=3; distances=true)
 
